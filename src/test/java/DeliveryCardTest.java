@@ -1,10 +1,8 @@
-import com.codeborne.selenide.Condition;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,36 +13,35 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
 import static java.time.LocalDate.now;
-import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
 
 public class DeliveryCardTest {
     private WebDriver driver;
     private LocalDate nowPlusThreeDays= now().plusDays(3);
     DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    @BeforeAll
-    public static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeEach
-    public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-    }
-
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
-        driver = null;
-    }
+//    @BeforeAll
+//    public static void setUpAll() {
+//        WebDriverManager.chromedriver().setup();
+//    }
+//
+//    @BeforeEach
+//    public void setUp() {
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--headless");
+//        driver = new ChromeDriver(options);
+//    }
+//
+//    @AfterEach
+//    public void tearDown() {
+//        driver.quit();
+//        driver = null;
+//    }
 
     @Test
     public void shouldSendForm() throws InterruptedException {
