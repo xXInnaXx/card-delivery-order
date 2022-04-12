@@ -19,29 +19,13 @@ import static com.codeborne.selenide.Selenide.*;
 import static java.time.LocalDate.now;
 
 public class DeliveryCardTest {
-    private WebDriver driver;
     private LocalDate nowPlusThreeDays= now().plusDays(3);
     DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-//    @BeforeAll
-//    public static void setUpAll() {
-//        WebDriverManager.chromedriver().setup();
-//    }
-//
-//    @BeforeEach
-//    public void setUp() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--headless");
-//        driver = new ChromeDriver(options);
-//    }
-//
-//    @AfterEach
-//    public void tearDown() {
-//        driver.quit();
-//        driver = null;
-//    }
+    @BeforeAll
+    public static void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @Test
     public void shouldSendForm() throws InterruptedException {
